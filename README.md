@@ -28,5 +28,4 @@
 ## Пример запуска 
 
 ```bash
-cd Laba01
-go run main.go
+go run ./Laba01
