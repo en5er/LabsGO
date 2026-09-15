@@ -20,12 +20,12 @@ func srednee(chislo1, chislo2, chislo3 float64) float64 {
 }
 
 func main() {
-	// задание 1
+	// Задание 1
 	tekusheeVremya := time.Now()
 	fmt.Printf("Задание 1.\n")
 	fmt.Println("Текущая дата и время:", tekusheeVremya.Format("02.01.2006 15:04:05."))
 
-	// задание 2
+	// Задание 2
 	var celoeChislo int = 25
 	var drobnoeChislo float64 = 3.14
 	var stroka string = "Привет, enser!"
@@ -36,7 +36,7 @@ func main() {
 	fmt.Println("string:", stroka)
 	fmt.Println("bool:", logika)
 
-	// задание 3 - через :=
+	// Задание 3 - через :=
 	vozrast := 20
 	rost := 183.2
 	imya := "Андрей"
@@ -48,7 +48,7 @@ func main() {
 	fmt.Println("Имя:", imya)
 	fmt.Println("Студент:", student)
 
-	// задание 4
+	// Задание 4
 	chisloA := 17
 	chisloB := 5
 	fmt.Printf("\n Задание 4.\n")
@@ -60,13 +60,13 @@ func main() {
 		fmt.Printf("%d %% %d = %d\n", chisloA, chisloB, chisloA%chisloB)
 	}
 
-	// задание 5
+	// Задание 5
 	summa, raznost := summaIRaznost(7.5, 2.5)
 	fmt.Printf("\n Задание 5.\n")
 	fmt.Printf("Первое число = %.2f, Второе число = %.2f \n",summa, raznost)
 	fmt.Printf("Сумма = %.2f, разность = %.2f\n \n", summa, raznost)
 
-	// задание 6
+	// Задание 6
 	fmt.Printf("\n Задание 6.\n")
 	fmt.Println("Введите три числа через пробел:")
 	reader := bufio.NewReader(os.Stdin)
