@@ -8,32 +8,101 @@ import (
 	"strings"
 )
 
+// positive / negative / zero
+func opredelitZnak(chislo int) string {
+	if chislo > 0 {
+		return "Positive"
+	} else if chislo < 0 {
+		return "Negative"
+	}
+	return "Zero"
+}
 
-func average(a, b int) float64 {
-	return float64(a+b) / 2
+// длина строки
+func dlinaStroki(stroka string) int {
+	return len(stroka)
+}
+
+type Rectangle struct {
+	shirina float64
+	vysota  float64
+}
+
+// площадь прямоугольника
+func (p Rectangle) Ploshad() float64 {
+	return p.shirina * p.vysota
+}
+
+// среднее двух целых
+func sredneeDvuh(chislo1, chislo2 int) float64 {
+	return float64(chislo1+chislo2) / 2
 }
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Println("Введите два целых числа (через пробел):")
+	// Задание 1
+	fmt.Println("Задание 1.")
+	fmt.Print("Введите число: ")
+	stroka1, _ := reader.ReadString('\n')
+	chislo1, oshibka1 := strconv.Atoi(strings.TrimSpace(stroka1))
+	if oshibka1 != nil {
+		fmt.Println("Нужно целое число")
+	} else if chislo1%2 == 0 {
+		fmt.Printf("Число %d чётное\n", chislo1)
+	} else {
+		fmt.Printf("Число %d нечётное\n", chislo1)
+	}
 
-	line, _ := reader.ReadString('\n')
-	fields := strings.Fields(line)
+	// Задание 2
+	fmt.Println("\n Задание 2.")
+	fmt.Print("Введите число: ")
+	stroka2, _ := reader.ReadString('\n')
+	chislo2, oshibka2 := strconv.Atoi(strings.TrimSpace(stroka2))
+	if oshibka2 != nil {
+		fmt.Println("Нужно целое число")
+	} else {
+		fmt.Println("Результат:", opredelitZnak(chislo2))
+	}
 
-	if len(fields) < 2 {
-		fmt.Println("Ошибка: нужно ввести два числа.")
+	// Задание 3
+	fmt.Println("\n Задание 3.")
+	for i := 1; i <= 10; i++ {
+		fmt.Print(i, " ")
+	}
+	fmt.Println()
+
+	// Задание 4
+	fmt.Println("\n Задание 4.")
+	fmt.Print("Введите строку: ")
+	stroka4, _ := reader.ReadString('\n')
+	stroka4 = strings.TrimSpace(stroka4)
+	fmt.Println("Длина строки:", dlinaStroki(stroka4))
+
+	// Задание 5
+	fmt.Println("\n Задание 5.")
+	priamougolnik := Rectangle{shirina: 5.5, vysota: 3.2}
+	fmt.Printf("Ширина = %.1f, высота = %.1f\n", priamougolnik.shirina, priamougolnik.vysota)
+	fmt.Printf("Площадь = %.2f\n", priamougolnik.Ploshad())
+
+	// Задание 6
+	fmt.Println("\n Задание 6.")
+	fmt.Print("Введите два целых числа через пробел: ")
+	stroka6, _ := reader.ReadString('\n')
+	chasti6 := strings.Fields(stroka6)
+
+	if len(chasti6) < 2 {
+		fmt.Println("Нужно два числа")
 		return
 	}
 
-	a, err1 := strconv.Atoi(fields[0])
-	b, err2 := strconv.Atoi(fields[1])
+	chislo6a, oshibka6a := strconv.Atoi(chasti6[0])
+	chislo6b, oshibka6b := strconv.Atoi(chasti6[1])
 
-	if err1 != nil || err2 != nil {
-		fmt.Println("Ошибка: оба значения должны быть целыми числами.")
+	if oshibka6a != nil || oshibka6b != nil {
+		fmt.Println("Оба числа должны быть целыми")
 		return
 	}
 
-	avg := average(a, b)
-	fmt.Printf("Среднее значение %d и %d = %.2f\n", a, b, avg)
+	fmt.Printf("Среднее значение = %.2f\n", sredneeDvuh(chislo6a, chislo6b))
 }
