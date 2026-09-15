@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-// сумма и разность двух float
+// сумма и разнность двух float
 func summaIRaznost(chislo1, chislo2 float64) (float64, float64) {
 	return chislo1 + chislo2, chislo1 - chislo2
 }
@@ -88,5 +88,12 @@ func main() {
 		chisla[i] = znachenie
 	}
 
+<<<<<<< HEAD:Laba01/Laba01.go
 	fmt.Printf("Среднее: %.2f\n", srednee(chisla[0], chisla[1], chisla[2]))
 }
+=======
+	avg := average(nums[0], nums[1], nums[2])
+	fmt.Printf("Среднее значение %.0f, %.0f и %.0f = %.2f\n",
+		nums[0], nums[1], nums[2], avg)
+}
+>>>>>>> 4dfc84d70859f71235b905e5db73d2c94699df46:Laba01/laba01.go
